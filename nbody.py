@@ -382,6 +382,20 @@ class System:
         ax.set_zlim(-self.box_length / 2, self.box_length / 2)
         ax.legend()
 
+
+    def plot_2d(self):
+        """
+        Plot the x trajectory of the particles.
+        """
+
+        fig, ax = plt.subplots()
+
+        # Plot the x trajectory of each particle
+        for i in range(self.num_particles):
+            ax.plot(self.times, self.stored_pos[:, i, 0], label=f"Particle {i + 1}")
+            ax.set_xlabel('Time')
+            ax.set_ylabel('X position')
+
     
     def measure(self, velocity):
         """
